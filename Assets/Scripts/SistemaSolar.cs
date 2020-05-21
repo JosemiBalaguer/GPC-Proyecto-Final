@@ -6,6 +6,7 @@ public class SistemaSolar : MonoBehaviour
 {
     public bool orbit = false;
     public bool translate = false;
+    public float speed = 30;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class SistemaSolar : MonoBehaviour
     void FixedUpdate()
     {
         if (orbit)
-            transform.RotateAround(transform.parent.position, transform.up, 30 * Time.fixedDeltaTime);
+            transform.RotateAround(transform.parent.position, transform.up, speed * Time.fixedDeltaTime);
         if (translate)
             transform.Translate(transform.up * Time.fixedDeltaTime * 3);
     }
