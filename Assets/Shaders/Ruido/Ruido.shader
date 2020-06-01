@@ -17,6 +17,7 @@
 				LOD 200
 
 				CGPROGRAM
+
 				// Physically based Standard lighting model, and enable shadows on all light types
 				#pragma surface surf Standard fullforwardshadows
 
@@ -68,6 +69,15 @@
 					o.Smoothness = _Glossiness;
 					o.Alpha = c.a;
 				}
+			
+				// Función del vertex shader 
+				/*void vert(inout appdata_full v) {
+					half3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+
+					v.vertex.y += sin(worldPos.x + _Movimiento) * _Amplitud;
+
+
+				}*/
 				ENDCG
 			}
 				FallBack "Diffuse"
