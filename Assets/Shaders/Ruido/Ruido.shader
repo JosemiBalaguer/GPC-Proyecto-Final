@@ -10,6 +10,7 @@
 			//Nuevas propiedades
 			 _TextRuido("TexturaRuido (RGB)", 2D) = "white" {}
 			_Intensidad("Intensidad", Range(-0.1,0.1)) = 0.0
+			_Inflado("Inflado", Range(0,1)) = 0.4
 	}
 		SubShader
 			{
@@ -18,8 +19,9 @@
 
 				CGPROGRAM
 
+		
 				// Physically based Standard lighting model, and enable shadows on all light types
-				#pragma surface surf Standard fullforwardshadows
+				#pragma surface surf Standard fullforwardshadows vertex:vert addshadow
 
 				// Use shader model 3.0 target, to get nicer looking lighting
 				#pragma target 3.0
@@ -39,6 +41,7 @@
 				fixed4 _Color;
 
 				half _Intensidad;
+				half _Inflado;
 
 				// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 				// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -71,13 +74,15 @@
 				}
 			
 				// Función del vertex shader 
-				/*void vert(inout appdata_full v) {
+				void vert(inout appdata_full v) {
+
 					half3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+					
+					v.vertex.x += v.normal.x * _Inflado;
+					v.vertex.z += v.normal.z * _Inflado;
+					v.vertex.y += v.normal.y * _Inflado;
 
-					v.vertex.y += sin(worldPos.x + _Movimiento) * _Amplitud;
-
-
-				}*/
+				}
 				ENDCG
 			}
 				FallBack "Diffuse"
