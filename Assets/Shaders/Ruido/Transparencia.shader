@@ -11,7 +11,7 @@
 		_Altura("Altura", Range(-1,1)) = 0.3
 		_Anchura("Anchura", Range(0,1)) = 0.2
 		_Amplitud("Amplitud", Range(0,1)) = 0.4
-		_Movimiento("Movimiento", Range(0,10)) = 5.0
+		_Velocidad("Velocidad", Range(0,100)) = 65.0
 	}
 		SubShader
 			{
@@ -42,7 +42,7 @@
 				half _Altura;
 				half _Anchura;
 				half _Amplitud;
-				half _Movimiento;
+				half _Velocidad;
 
 				// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 				// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -60,7 +60,7 @@
 					fixed4 c = tex2D(_MainTex, IN.uv_MainTex) ;
 					
 					//Si el valor no es negro aplicamos las propiedades sino descartamos el pixel
-					if (c.r > 0.04 || c.g > 0.04 || c.b > 0.0) {
+					if (c.r > 0.04 || c.g > 0.1 || c.b > 0.1) {
 						o.Albedo = c.rgb;
 						o.Metallic = _Metallic;
 						o.Smoothness = _Glossiness;
@@ -80,7 +80,8 @@
 				void vert(inout appdata_full v) {
 					half3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 
-					v.vertex.y += sin(worldPos.x + _Movimiento) * _Amplitud;	
+					//v.vertex.y += sin(worldPos.x + _Movimiento) * _Amplitud;
+					v.vertex.y += sin(v.vertex.x + _Time * _Velocidad) * _Amplitud; //quitar _Movimiento
 						
 
 				}

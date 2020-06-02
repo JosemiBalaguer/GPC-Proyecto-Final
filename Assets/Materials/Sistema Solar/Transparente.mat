@@ -61,8 +61,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Altura: -0.397
-    - _Amplitud: 0.4
+    - _Amplitud: 0.227
     - _Anchura: 0.535
+    - _Azul: 0.1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -73,19 +74,23 @@ Material:
     - _Inflado: 0.476
     - _Metallic: 1
     - _Mode: 0
-    - _Movimiento: 2.55
+    - _Movimiento: 65
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RangoEfecto: 0.837
+    - _Rojo: 0.04
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Transparency: 0.5
     - _UVSec: 0
     - _ValorUmbral: 0.534
+    - _Velocidad: 65
+    - _Verde: 0.1
     - _ZWrite: 1
     m_Colors:
     - _Black: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 0.6431373, b: 0, a: 1}
     - _ColorE: {r: 0.9176471, g: 0.16862746, b: 0.007843138, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
