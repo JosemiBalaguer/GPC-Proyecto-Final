@@ -81,7 +81,7 @@
 					half3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 
 					//v.vertex.y += sin(worldPos.x + _Movimiento) * _Amplitud;
-					v.vertex.y += sin(v.vertex.x + _Time * _Velocidad) * _Amplitud; //quitar _Movimiento
+					v.vertex.y += sin(v.vertex.z + _Time * _Velocidad) * _Amplitud; //quitar _Movimiento
 						
 
 				}
